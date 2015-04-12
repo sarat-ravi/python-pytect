@@ -48,6 +48,12 @@ pytect.train_group(berkeley)
 candidates, groups, scores = pytect.identify("bob.jpg", yale)
 assert candidates[0] == bob and groups[0] == yale and scores[0] >= 0.95
 
+candidates, groups, scores = pytect.identify("berkeley_class_2014.png", berkeley)
+for candidate, group, score in zip(candidates, groups, scores):
+    assert candidate in (alice, aaron)
+    assert group == berkeley
+    assert score >= 0.85
+
 # clear all models and forget everything
 pytect.clear()
 
