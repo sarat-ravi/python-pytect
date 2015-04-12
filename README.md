@@ -47,4 +47,10 @@ pytect.train_group(berkeley)
 # identify people and their groups from any image!
 candidates, groups, scores = pytect.identify("bob.jpg", yale)
 assert candidates[0] == bob and groups[0] == yale and scores[0] >= 0.95
+
+# clear all models and forget everything
+pytect.clear()
+
+# clear any cached data as well
+pytect.clear_cache()
 ```
