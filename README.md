@@ -27,24 +27,24 @@ make test
 ```python
 import pytect
 
-\# create groups
+# create groups
 yale = pytect.create_group(group_name="yale")
 berkeley = pytect.create_group(group_name="berkeley")
 
-\# create people
+# create people
 bob = pytect.create_person(person_name="bob")
 alice = pytect.create_person(person_name="alice")
 aaron = pytect.create_person(person_name="aaron")
 
-\# add people to groups
+# add people to groups
 yale.add_people([bob, alice])
 berkeley.add_people([alice, aaron])
 
-\# train the images in the groups
+# train the images in the groups
 pytect.train_group(yale)
 pytect.train_group(berkeley)
 
-\# identify people and their groups from any image!
+# identify people and their groups from any image!
 candidates, groups, scores = pytect.identify("bob.jpg", yale)
 assert candidates[0] == bob and groups[0] == yale and scores[0] >= 0.95
 ```
